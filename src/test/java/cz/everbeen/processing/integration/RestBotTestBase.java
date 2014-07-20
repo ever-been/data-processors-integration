@@ -24,18 +24,18 @@ import java.net.URL;
  */
 abstract class RestBotTestBase {
 
-    private static final String BASEURL_PROPERTY = "cz.everbeen.restapi.url";
+	private static final String BASEURL_PROPERTY = "cz.everbeen.restapi.url";
 
-    protected RestApiClient client;
+	protected RestApiClient client;
 
-    @BeforeClass
-    public void setUp() throws MalformedURLException {
+	@BeforeClass
+	public void setUp() throws MalformedURLException {
 		client = RestApiClient.forService(new URL(System.getProperty(BASEURL_PROPERTY)));
-    }
+	}
 
-    @AfterClass
-    public void tearDown() throws IOException {
+	@AfterClass
+	public void tearDown() throws IOException {
 		client = null;
-    }
+	}
 
 }

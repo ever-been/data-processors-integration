@@ -17,44 +17,44 @@ import java.net.URL;
  */
 public final class RequestUtils {
 
-    private final URL baseUrl;
+	private final URL baseUrl;
 
-    private RequestUtils(URL baseUrl) {
-        this.baseUrl = baseUrl;
-    }
+	private RequestUtils(URL baseUrl) {
+		this.baseUrl = baseUrl;
+	}
 
-    /**
-     * Create request utils with a base url
-     * @param baseUrl The URL serving as base for all requests
-     * @return The request util instance
-     */
-    public static RequestUtils over(URL baseUrl) {
-        return new RequestUtils(baseUrl);
-    }
+	/**
+	 * Create request utils with a base url
+	 * @param baseUrl The URL serving as base for all requests
+	 * @return The request util instance
+	 */
+	public static RequestUtils over(URL baseUrl) {
+		return new RequestUtils(baseUrl);
+	}
 
-    /**
-     * Create an HTTP GET request
-     * @param path context path of the request
-     * @return The request
-     */
-    protected HttpGet get(String... path) throws MalformedURLException, URISyntaxException {
-        return new HttpGet(uri(path));
-    }
+	/**
+	 * Create an HTTP GET request
+	 * @param path context path of the request
+	 * @return The request
+	 */
+	protected HttpGet get(String... path) throws MalformedURLException, URISyntaxException {
+		return new HttpGet(uri(path));
+	}
 
-    /**
-     * Create an HTTP GET request
-     * @param path context path of the request
-     * @return The request
-     */
-    protected HttpPut put(InputStream content, String... path) throws MalformedURLException, URISyntaxException {
-        return new HttpPut(uri(path));
-    }
+	/**
+	 * Create an HTTP GET request
+	 * @param path context path of the request
+	 * @return The request
+	 */
+	protected HttpPut put(InputStream content, String... path) throws MalformedURLException, URISyntaxException {
+		return new HttpPut(uri(path));
+	}
 
-    private URI uri(String... path) throws MalformedURLException, URISyntaxException {
-        URL u = baseUrl;
-        for (String pathElm: path) {
-            u = new URL(u, pathElm);
-        }
-        return u.toURI();
-    }
+	private URI uri(String... path) throws MalformedURLException, URISyntaxException {
+		URL u = baseUrl;
+		for (String pathElm: path) {
+			u = new URL(u, pathElm);
+		}
+		return u.toURI();
+	}
 }

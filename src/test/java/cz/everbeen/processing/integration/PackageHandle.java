@@ -20,33 +20,33 @@ public final class PackageHandle {
 		this.file = file;
 	}
 
-    /**
-     * @return The BPK's groupId
-     */
-    public String getGroupId() {
-        return groupId;
-    }
+	/**
+	 * @return The BPK's groupId
+	 */
+	public String getGroupId() {
+		return groupId;
+	}
 
-    /**
-     * @return The BPK's bkpId
-     */
-    public String getBpkId() {
+	/**
+	 * @return The BPK's bkpId
+	 */
+	public String getBpkId() {
 		return bpkId;
 	}
 
-    /**
-     * @return The BPK's version
-     */
-    public String getVersion() {
+	/**
+	 * @return The BPK's version
+	 */
+	public String getVersion() {
 		return version;
-    }
+	}
 
-    /**
-     * Get the BPK
-     *
-     * @return The BPK file with export logic
-     */
-    public File getFile() {
-        return file;
-    }
+	/**
+	 * Get the BPK
+	 *
+	 * @return The BPK file with export logic
+	 */
+	public File getFile() {
+		return file;
+	}
 }
