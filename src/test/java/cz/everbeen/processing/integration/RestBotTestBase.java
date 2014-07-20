@@ -26,54 +26,16 @@ abstract class RestBotTestBase {
 
     private static final String BASEURL_PROPERTY = "cz.everbeen.restapi.url";
 
-    private CloseableHttpClient client;
-    private URL baseUrl;
+    protected RestApiClient client;
 
     @BeforeClass
     public void setUp() throws MalformedURLException {
-        baseUrl = new URL(System.getProperty(BASEURL_PROPERTY));
-        client = HttpClients.createMinimal();
+		client = RestApiClient.forService(new URL(System.getProperty(BASEURL_PROPERTY)));
     }
 
     @AfterClass
     public void tearDown() throws IOException {
-        client.close();
-        client = null;
+		client = null;
     }
 
-    /**
-     * Create an HTTP GET request
-     * @param path context path of the request
-     * @return The request
-     */
-    protected HttpGet get(String... path) throws MalformedURLException, URISyntaxException {
-        return new HttpGet(uri(path));
-    }
-
-    /**
-     * Create an HTTP GET request
-     * @param path context path of the request
-     * @return The request
-     */
-    protected HttpPut put(InputStream content, String... path) throws MalformedURLException, URISyntaxException {
-        return new HttpPut(uri(path));
-    }
-
-    /**
-     * Execute give HTTP request against the EverBEEN REST API
-     * @param request Request to execute
-     * @return The response from the REST API server
-     * @throws IOException When request fails
-     */
-    protected HttpResponse execute(HttpUriRequest request) throws IOException {
-        return client.execute(request);
-    }
-
-    private URI uri(String... path) throws MalformedURLException, URISyntaxException {
-        URL u = baseUrl;
-        for (String pathElm: path) {
-            u = new URL(u, pathElm);
-        }
-        return u.toURI();
-    }
 }

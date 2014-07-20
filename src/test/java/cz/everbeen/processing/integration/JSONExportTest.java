@@ -6,15 +6,6 @@ package cz.everbeen.processing.integration;
  * @author darklight
  * @since 6/29/14.
  */
-public class JSONExportTest extends ExportTestBase {
+public class JSONExportTest extends RestBotTestBase {
 
-    @Override
-    protected String getBpkId() {
-        return null;
-    }
-
-    @Override
-    public void doTest() {
-
-    }
 }
