@@ -25,15 +25,18 @@ import java.net.URL;
 abstract class RestBotTestBase {
 
 	protected RestApiClient client;
+	protected PackageHandleFactory packages;
 
 	@BeforeClass
 	public void setUp() throws MalformedURLException {
 		client = RestApiClient.forService(new URL(System.getProperty(ImportedSysprops.RESTAPI_URL)));
+		packages = new PackageHandleFactory();
 	}
 
 	@AfterClass
 	public void tearDown() throws IOException {
 		client = null;
+		packages = null;
 	}
 
 }

@@ -44,7 +44,7 @@ public class RestApiClient {
 	/**
 	 * Upload the exporting package to the server
 	 */
-	public final void upload(PackageHandle packageHandle) throws IOException, URISyntaxException {
+	public final void uploadBpk(PackageHandle packageHandle) throws IOException, URISyntaxException {
 		final InputStream content = new BufferedInputStream(new FileInputStream(packageHandle.getFile()));
 		final HttpPut put;
 		try {
